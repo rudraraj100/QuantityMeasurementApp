@@ -1,32 +1,38 @@
 package com.apps.quantitymeasurementapp;
 
 public class QuantityMeasurementApp {
-	
-	public static void demonstrateFeetEquality() {
-		
-		Feet f1 = new Feet(2.5);
-		
-		Feet f2 = new Feet(2.5);
-		
-		System.out.println("Equals: " + f1.equals(f2));
-		
-	}
-	
-	public static void demonstrateInchesEquality() {
-		
-		Inches i1 = new Inches(2.5);
-		
-		Inches i2 = new Inches(2.5);
 
-		System.out.println("Equals: " + i1.equals(i2));
-		
+	public static boolean demonstrateLengthEquality(Length l1, Length l2) {
+		return l1.equals(l2);
+	}
+
+	public static void demonstrateFeetEquality() {
+		Length l1 = new Length(1.0, Length.LengthUnit.FEET);
+		Length l2 = new Length(1.0, Length.LengthUnit.FEET);
+		System.out.println("Input: Quantity(" + l1.getValue() + ",\"" + l1.getUnit() +"\") and Quantity("+ l2.getValue() + ",\"" + l2.getUnit() + "\")");
+		System.out.println("Output: Equal(" + l1.equals(l2) + ")");
+
+	}
+
+	public static void demonstrateInchesEquality() {
+		Length l1 = new Length(1.0, Length.LengthUnit.INCHES);
+		Length l2 = new Length(1.0, Length.LengthUnit.INCHES);
+
+		System.out.println("Input: Quantity(" + l1.getValue() + ",\"" + l1.getUnit() +"\") and Quantity("+ l2.getValue() + ",\"" + l2.getUnit() + "\")");
+		System.out.println("Output: Equal(" + l1.equals(l2) + ")");
+	}
+
+	public static void demonstrateFeetInchesComparison() {
+		Length l1 = new Length(1.0, Length.LengthUnit.FEET);
+		Length l2 = new Length(12.0, Length.LengthUnit.INCHES);
+		System.out.println("Input: Quantity(" + l1.getValue() + ",\"" + l1.getUnit() +"\") and Quantity("+ l2.getValue() + ",\"" + l2.getUnit() + "\")");
+
+		System.out.println("Output: Equal(" + l1.equals(l2) + ")");
 	}
 
 	public static void main(String[] args) {
-		
-		QuantityMeasurementApp.demonstrateFeetEquality();
-		QuantityMeasurementApp.demonstrateInchesEquality();
-
+		demonstrateFeetEquality();
+		demonstrateInchesEquality();
+		demonstrateFeetInchesComparison();
 	}
-
 }

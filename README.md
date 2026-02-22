@@ -14,6 +14,6 @@ Example:
 Input: 1.0 ft and 1.0 ft
 Output: true
 
-[UC1-FeetEquality](https://github.com/rashi-raj/QuantityMeasurementApp/edit/feature/UC1-FeetEquality/src)
+[UC1-FeetEquality](https://github.com/rudraraj100/QuantityMeasurementApp/tree/feature/UC1-FeetEquality/src)
 
 ---

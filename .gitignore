@@ -3,8 +3,7 @@
 *.class
 !/target/.gitkeep
 !/target/.placeholder
-!*/src/main/*/target/
-!*/src/test/*/target/
+
 /target/**/generated-sources/
 
 # Maven
@@ -50,8 +49,7 @@ mvnw.cmd
 /nbdist/
 /.nb-gradle/
 build/
-!*/src/main/*/build/
-!*/src/test/*/build/
+
 
 ### VS Code ###
 .vscode/

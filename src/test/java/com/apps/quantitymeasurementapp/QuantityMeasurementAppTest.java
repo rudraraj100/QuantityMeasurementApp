@@ -1,4 +1,4 @@
-package com.apps.feetmeasurementapp;
+package com.apps.quantitymeasurementapp;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.apps.quantitymeasurementapp.Feet;
 
-public class FeetTest {
+public class QuantityMeasurementAppTest {
 	
 	@Test
 	void testFeetEquality_SameValue() {

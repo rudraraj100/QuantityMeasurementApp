@@ -15,6 +15,6 @@ Example:
   - Input: 1.0 yd + 3.0 ft → Target Unit: YARDS → Output: 2.0 yd
   - Input: 36.0 in + 1.0 yd → Target Unit: FEET → Output: 6.0 ft
 
-[UC7-Target Unit Specification](https://github.com/rashi-raj/QuantityMeasurementApp/tree/feature/UC7-TargetUnitConversion/src)
+[UC7-Target Unit Specification](https://github.com/rudraraj100/QuantityMeasurementApp/tree/feature/UC7-AdditionWithTargetUnit/src)
 
 ---

@@ -1,6 +1,6 @@
-# 📏 Quantity Measurement App
+# Quantity Measurement App
 
-## 🏗 Building a Quantity Measurement System
+## Building a Quantity Measurement System
 
 This document walks through the evolution of the Quantity Measurement codebase, where we progressively learned fundamental software design principles by solving increasingly complex problems.
 
@@ -8,7 +8,7 @@ From basic equality comparisons to advanced arithmetic operations with selective
 
 ---
 
-# 🧠 Final Architecture
+# Final Architecture
 
 ```
 📂 IMeasurable (interface)
@@ -126,7 +126,7 @@ UC14 → Temperature with selective arithmetic — Advanced constraints
 
 ---
 
-# 🚀 Final Outcome
+# Final Outcome
 
 A **clean, scalable, type-safe, extensible measurement framework** that:
 

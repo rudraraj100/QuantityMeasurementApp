@@ -1297,7 +1297,7 @@ public class QuantityMeasurementAppTest {
 
     @Test
     void testArithmeticOperation_Add_EnumComputation() throws Exception {
-        Class<?> enumClass = Class.forName("com.quantityMeasurementApp.Quantity$ArithmeticOperation");
+        Class<?> enumClass = Class.forName("com.apps.quantitymeasurementapp.Quantity$ArithmeticOperation");
         Object add = Enum.valueOf((Class<Enum>) enumClass, "ADD");
 
         Method compute = enumClass.getDeclaredMethod("compute", double.class, double.class);
@@ -1309,7 +1309,7 @@ public class QuantityMeasurementAppTest {
 
     @Test
     void testArithmeticOperation_Subtract_EnumComputation() throws Exception {
-        Class<?> enumClass = Class.forName("com.quantityMeasurementApp.Quantity$ArithmeticOperation");
+        Class<?> enumClass = Class.forName("com.apps.quantitymeasurementapp.Quantity$ArithmeticOperation");
         Object sub = Enum.valueOf((Class<Enum>) enumClass, "SUBTRACT");
 
         Method compute = enumClass.getDeclaredMethod("compute", double.class, double.class);
@@ -1321,7 +1321,7 @@ public class QuantityMeasurementAppTest {
 
     @Test
     void testArithmeticOperation_Divide_EnumComputation() throws Exception {
-        Class<?> enumClass = Class.forName("com.quantityMeasurementApp.Quantity$ArithmeticOperation");
+        Class<?> enumClass = Class.forName("com.apps.quantitymeasurementapp.Quantity$ArithmeticOperation");
         Object div = Enum.valueOf((Class<Enum>) enumClass, "DIVIDE");
 
         Method compute = enumClass.getDeclaredMethod("compute", double.class, double.class);
@@ -1439,7 +1439,7 @@ public class QuantityMeasurementAppTest {
         Method method = Quantity.class.getDeclaredMethod(
                 "performBaseArithmetic",
                 Quantity.class,
-                Class.forName("com.quantityMeasurementApp.Quantity$ArithmeticOperation")
+                Class.forName("com.apps.quantitymeasurementapp.Quantity$ArithmeticOperation")
         );
 
         assertTrue(Modifier.isPrivate(method.getModifiers()));

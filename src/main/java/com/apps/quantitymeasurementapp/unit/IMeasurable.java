@@ -1,15 +1,15 @@
-
-package com.apps.quantitymeasurementapp;
+package com.apps.quantitymeasurementapp.unit;
 
 public interface IMeasurable {
-
-	double getConversionFactor();
 
 	double convertToBaseUnit(double value);
 
 	double convertFromBaseUnit(double baseValue);
 
-	String getUnitName();
+	@FunctionalInterface
+	interface SupportsArithmetic {
+		boolean isSupported();
+	}
 
 	SupportsArithmetic supportsArithmetic = () -> true;
 
@@ -18,5 +18,6 @@ public interface IMeasurable {
 	}
 
 	default void validateOperationSupport(String operation) {
+		// Overridden in TemperatureUnit
 	}
 }

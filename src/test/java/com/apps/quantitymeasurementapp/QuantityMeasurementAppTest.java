@@ -3,6 +3,9 @@ package com.apps.quantitymeasurementapp;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import org.junit.jupiter.api.Test;
+
+import com.apps.quantitymeasurementapp.application.QuantityMeasurementApp;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityMeasurementAppTest {

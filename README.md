@@ -1,22 +1,24 @@
-### 📅 UC14: Temperature Measurement Equality and Conversion
+### 📅 UC15: N-Tier Architecture Refactoring
 
-- Description: UC14 extends the Quantity Measurement App to support temperature measurements (Celsius and Fahrenheit). Unlike length, weight, and volume, temperature uses non-linear conversion formulas. The system supports equality and conversion only. Arithmetic operations like addition, subtraction, multiplication, and division are not allowed for temperature.
+- Description: UC15 restructures the Quantity Measurement App into a layered architecture by introducing Controller, Service, Repository, DTO, Model, and Entity layers. This separation improves maintainability, modularity, and testability while preserving all measurement logic implemented in previous use cases.
 
-- Units & Conversion:
-  - CELSIUS (°C) – base unit
-  - FAHRENHEIT (°F) – °F = (°C × 9/5) + 32
+- Architecture:
+
+  - **Controller** – Handles requests and delegates operations to the service layer.
+  - **Service** – Contains business logic and coordinates conversions and operations.
+  - **Repository** – Provides a cache-based storage layer.
+  - **DTO / Model / Entity** – Used for structured data transfer and internal representation.
 
 - Implementation:
-  - TemperatureUnit enum implements IMeasurable.
-  - Uses conversion formulas instead of multiplication factors.
-  - Supports cross-unit equality using epsilon precision.
-  - Arithmetic operations throw UnsupportedOperationException.
-  - Fully compatible with the existing generic Quantity class.
-  - No changes required to LengthUnit, WeightUnit, or VolumeUnit.
+
+  - Introduced `QuantityMeasurementController`, `QuantityMeasurementServiceImpl`, and `QuantityMeasurementCacheRepository`.
+  - Added `QuantityDTO`, `QuantityModel`, and `QuantityMeasurementEntity`.
+  - Service performs **DTO → Model → Quantity → Model → DTO** transformation.
+  - Reuses the existing generic `Quantity` engine and unit enums from previous UCs.
 
 - Example:
-  - Quantity(0.0, CELSIUS).equals(Quantity(32.0, FAHRENHEIT)) → true
-  - Quantity(100.0, CELSIUS).convertTo(FAHRENHEIT) → 212.0
-  - Quantity(50.0, CELSIUS).add(Quantity(10.0, CELSIUS)) → UnsupportedOperationException
 
-[UC14–Temperature Measurement](https://github.com/rudraraj100/QuantityMeasurementApp/tree/feature/UC14-TemperaturEMeasurement/src)
+  - `QuantityDTO(10, FEET, LENGTH) + QuantityDTO(12, INCHES, LENGTH) → QuantityDTO(11, FEET, LENGTH)`
+  - `QuantityDTO(100, CELSIUS, TEMPERATURE).equals(QuantityDTO(212, FAHRENHEIT, TEMPERATURE)) → true`
+
+[UC15–Architecture Refactoring](https://github.com/rudraraj100/QuantityMeasurementApp/tree/feature/UC15-NTierArchitecture/src)

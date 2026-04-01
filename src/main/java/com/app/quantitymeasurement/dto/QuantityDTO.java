@@ -34,35 +34,44 @@ public class QuantityDTO {
     @NotEmpty(message = "Measurement type must not be empty")
     @Pattern(
         regexp = "LengthUnit|WeightUnit|VolumeUnit|TemperatureUnit|LENGTH|WEIGHT|VOLUME|TEMPERATURE",
-        message = "Unit must be valid for the specified measurement type"
+        message = "Measurement type must be one of: LengthUnit, WeightUnit, VolumeUnit, TemperatureUnit, LENGTH, WEIGHT, VOLUME, TEMPERATURE"
     )
     @Schema(
         description = "Measurement category",
         example = "LengthUnit",
-        allowableValues = {"LengthUnit", "WeightUnit", "VolumeUnit", "TemperatureUnit"}
+        allowableValues = {"LengthUnit", "WeightUnit", "VolumeUnit", "TemperatureUnit", "LENGTH", "WEIGHT", "VOLUME", "TEMPERATURE"}
     )
     @JsonProperty("measurementType")
     private String measurementType;
 
-    // ── Convenience constructor matching UC16 usage (double not Double) ───
     public QuantityDTO(double value, String unit, String measurementType) {
-        this.value           = value;
-        this.unit            = unit;
+        this.value = value;
+        this.unit = unit;
         this.measurementType = measurementType;
     }
 
     /**
-     * Normalise measurementType to the internal UC16 convention (LENGTH, WEIGHT …).
-     * Accepts both "LengthUnit" (API style) and "LENGTH" (legacy style).
+     * Normalises measurementType to the internal convention.
+     * Accepts both API style and legacy style.
      */
     public String getNormalisedMeasurementType() {
-        if (measurementType == null) return null;
-        return switch (measurementType.toUpperCase()) {
+        if (measurementType == null) {
+            return null;
+        }
+
+        return switch (measurementType.trim().toUpperCase()) {
             case "LENGTHUNIT", "LENGTH" -> "LENGTH";
             case "WEIGHTUNIT", "WEIGHT" -> "WEIGHT";
             case "VOLUMEUNIT", "VOLUME" -> "VOLUME";
             case "TEMPERATUREUNIT", "TEMPERATURE" -> "TEMPERATURE";
-            default -> measurementType.toUpperCase();
+            default -> measurementType.trim().toUpperCase();
         };
+    }
+
+    /**
+     * Optional helper for cleaner unit handling if service layer needs it.
+     */
+    public String getNormalisedUnit() {
+        return unit == null ? null : unit.trim().toUpperCase();
     }
 }

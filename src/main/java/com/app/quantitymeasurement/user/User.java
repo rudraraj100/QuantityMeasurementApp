@@ -19,34 +19,39 @@ import java.time.LocalDateTime;
 @Builder
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	// Google's unique user ID (sub claim)
-	@Column(name = "google_id", unique = true, nullable = false)
-	private String googleId;
+    @Column(name = "google_id", unique = true)
+    private String googleId;
 
-	@Column(nullable = false)
-	private String name;
+    @Column(nullable = false)
+    private String name;
 
-	@Column(unique = true, nullable = false)
-	private String email;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-	@Column(name = "picture_url")
-	private String pictureUrl;
+    @Column(nullable = false)
+    private String password;
 
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
-	private Role role;
+    @Column(length = 10)
+    private String mobile;
 
-	@Column(name = "is_active")
-	private boolean active = true;
+    @Column(name = "picture_url")
+    private String pictureUrl;
 
-	@CreatedDate
-	@Column(name = "created_at", updatable = false)
-	private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
-	@Column(name = "last_login_at")
-	private LocalDateTime lastLoginAt;
+    @Column(name = "is_active")
+    private boolean active = true;
+
+    @CreatedDate
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "last_login_at")
+    private LocalDateTime lastLoginAt;
 }

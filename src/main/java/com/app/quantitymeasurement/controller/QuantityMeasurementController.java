@@ -40,6 +40,7 @@ public class QuantityMeasurementController {
 
     @Operation(summary = "API Index", description = "Returns all available endpoints and valid unit values.")
     @GetMapping
+    // This method provides metadata about available APIs, supported operations, and system information
     public ResponseEntity<Map<String, Object>> apiIndex() {
         Map<String, Object> index = new LinkedHashMap<>();
         index.put("application", "Quantity Measurement App — UC17");

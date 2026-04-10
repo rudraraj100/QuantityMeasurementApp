@@ -1,6 +1,8 @@
 application.properties
 bin/
 HELP.md
+mysql_data
+
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

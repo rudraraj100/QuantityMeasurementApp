@@ -1,6 +1,5 @@
 HELP.md
 target/
-.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -33,7 +32,8 @@ build/
 .vscode/
 
 .gitattributes
-.mvn/
-mvnw
-mvnw.cmd
-application.properties
+
+# Local secret files only
+src/main/resources/application-local.properties
+.env
+.env.*
